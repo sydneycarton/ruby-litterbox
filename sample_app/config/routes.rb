@@ -1,4 +1,7 @@
 SampleApp::Application.routes.draw do
+  get "static_pages/home" #The route to the static pages controller, home function is implied here.
+  get "static_pages/help"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
