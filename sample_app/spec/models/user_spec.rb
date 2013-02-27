@@ -28,7 +28,15 @@ describe User do
 	
 	it{should be_valid}
 
-
+	describe "email address will save with mixed case" do
+		let(:mixed_case_mail){ "Foo@ExAMple.CoM"}
+		it "should be saved as all lower case" do
+			@user.email = mixed_case_mail
+			@user.save
+			@user.reload.email.should == mixed_case_mail.downcase
+		end
+	end
+	
 	describe "return the value of authenticate method" do
 		before {@user.save}
 		let(:found_user){
